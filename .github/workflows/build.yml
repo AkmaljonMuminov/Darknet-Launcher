@@ -6,6 +6,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,8 +27,20 @@ jobs:
       - name: Build debug APK
         run: gradle assembleDebug --stacktrace
 
+      - name: Rename APK
+        run: cp app/build/outputs/apk/debug/app-debug.apk Darknet-Launcher-debug.apk
+
       - uses: actions/upload-artifact@v4
         with:
           name: debug-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: Darknet-Launcher-debug.apk
           if-no-files-found: error
+
+      - name: Publish APK to Releases
+        if: github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: Debug build #${{ github.run_number }}
+          prerelease: true
+          files: Darknet-Launcher-debug.apk
