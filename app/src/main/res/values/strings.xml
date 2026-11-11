@@ -2,4 +2,14 @@
 <resources>
     <string name="app_name">Darknet Launcher</string>
     <string name="search_hint">Ilovani qidirish…</string>
+    <string name="hidden_apps">Yashirin</string>
+    <string name="dock_hint">Ilovani uzoq bosib, dock\'ga qo\'shing</string>
+    <string name="swipe_hint">︿  Ilovalar</string>
+    <string name="menu_add_dock">Dock\'ga qo\'shish</string>
+    <string name="menu_remove_dock">Dock\'dan olib tashlash</string>
+    <string name="menu_hide">Yashirish</string>
+    <string name="menu_unhide">Yashirmaslik</string>
+    <string name="menu_info">Ilova haqida</string>
+    <string name="menu_uninstall">O\'chirish</string>
+    <string name="dock_full">Dock to\'la (5 tagacha)</string>
 </resources>
